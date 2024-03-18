@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxArkamiArabicConverterModule } from 'ngx-arkami-arabic-converter';
+
 
 @NgModule({
   declarations: [
@@ -10,7 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxArkamiArabicConverterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

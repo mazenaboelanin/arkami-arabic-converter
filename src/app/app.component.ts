@@ -11,7 +11,8 @@ import { NgxArkamiArabicConverterService } from 'ngx-arkami-arabic-converter';
 export class AppComponent {
   form: FormGroup;
   title = 'Arkami Arabic Converter';
-  formattedNumber = '';
+  arabicTextRepresentation = '';
+  inputNumber = '';
   constructor(
     private ngxArkamiService: NgxArkamiArabicConverterService
   ) {
@@ -21,19 +22,30 @@ export class AppComponent {
 
   }
 
-  convertNumberToArabic(): void {
+  // if you want to use the service and pass value to your html
+  convertNumberToArabicWords(): void {
     if (!this.form.value.number) {
-      this.formattedNumber = '';
+      this.arabicTextRepresentation = '';
       return;
     }
 
     const isNumber = parseInt(this.form.value.number);
-
     if (isNumber) {
-      this.formattedNumber = this.ngxArkamiService.convertToArabicWords(this.form.value.number);
+      this.arabicTextRepresentation = this.ngxArkamiService.convertToArabicWords(this.form.value.number);
+    }
+  }
 
+
+  // if you want to use the ngxArkamiArabicConverter component to render the value through the component
+  setInputNumber(): void {
+    if (!this.form.value.number) {
+      this.inputNumber = '';
+      return;
     }
 
-    this.formattedNumber;
+    const isNumber = parseInt(this.form.value.number);
+    if (isNumber) {
+      this.inputNumber = this.form.value.number;
+    }
   }
 }

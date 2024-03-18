@@ -8,12 +8,26 @@
 
     <form [formGroup]="form">
       <input type="text" placeholder="please enter your number" formControlName="number">
-      <button (click)="convertNumberToArabic()">Convert into Arabic Text</button>
+      <!-- 1 this button used for servcie -->
+      <!-- <button (click)="convertNumberToArabicWords()">Convert into Arabic Text</button> -->
+
+      <!-- 2 this button used for component -->
+      <button (click)="setInputNumber()">Convert into Arabic Text</button>
     </form>
 
-    <div *ngIf="formattedNumber" style="margin-top: 10px;">
+    <!-- 1 output arabic text using library service -->
+    <div *ngIf="arabicTextRepresentation" style="margin-top: 10px;">
       <p>this is the text representation of what you entered</p>
-      <p class="output"> {{ formattedNumber }} </p>
+      <p class="output"> {{ arabicTextRepresentation }} </p>
+    </div>
+
+
+    <!-- 2 output arabic text from library component -->
+    <div *ngIf="inputNumber" style="margin-top: 10px;">
+      <p>this is the text representation of what you entered</p>
+      <p class="output">
+        <ngx-arkami-arabic-converter [strNumber]="inputNumber"></ngx-arkami-arabic-converter>
+      </p>
     </div>
 
   </div>
