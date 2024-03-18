@@ -15,6 +15,70 @@ To install all dependencies after you clone the app run:
 npm i
 ```
 
+## Usage 
+
+### First Approach: using NgxArkamiArabicConverterService
+
+#### in app.component.ts
+
+```javascript
+  convertNumberToArabicWords(): void {
+    if (!this.form.value.number) {
+      this.arabicTextRepresentation = '';
+      return;
+    }
+
+    const isNumber = parseInt(this.form.value.number);
+    if (isNumber) {
+      this.arabicTextRepresentation = this.ngxArkamiService.convertToArabicWords(this.form.value.number);
+    }
+  }
+```
+#### in app.component.hml
+
+```html
+  <!-- 1 this button used for servcie -->
+  <button (click)="convertNumberToArabicWords()">Convert into Arabic Text</button>
+
+  <!-- 1 output arabic text using library service -->
+  <div *ngIf="arabicTextRepresentation" style="margin-top: 10px;">
+    <p>this is the text representation of what you entered</p>
+    <p class="output"> {{ arabicTextRepresentation }} </p>
+  </div>
+```
+
+### Second Approach: using ngx-arkami-arabic-converter Component
+
+#### in app.component.ts
+```javascript
+  setInputNumber(): void {
+    if (!this.form.value.number) {
+      this.inputNumber = '';
+      return;
+    }
+
+    const isNumber = parseInt(this.form.value.number);
+    if (isNumber) {
+      this.inputNumber = this.form.value.number;
+    }
+  }
+```
+
+#### in app.component.hml
+
+```html
+  <!-- 2 this button used for component -->
+  <button (click)="setInputNumber()">Convert into Arabic Text</button>
+
+  <!-- 2 output arabic text from library component -->
+  <div *ngIf="inputNumber" style="margin-top: 10px;">
+    <p>this is the text representation of what you entered</p>
+    <p class="output">
+      <ngx-arkami-arabic-converter [strNumber]="inputNumber"></ngx-arkami-arabic-converter>
+    </p>
+  </div>
+```
+
 
 ## Development server
 
