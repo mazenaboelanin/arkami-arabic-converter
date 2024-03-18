@@ -1,6 +1,12 @@
 {
   "name": "arkami-arabic-converter-app",
   "version": "0.0.0",
+  "description": "An Angular app that makes user input a number and display the arabic text representation of that number using `NgxArkamiArabicConverter` angular library",
+  "author": {
+    "name": "Mazen Abo ELanin",
+    "email": "mazenaboelanin@gmail.com"
+  },
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,6 +15,11 @@
     "test": "ng test"
   },
   "private": true,
+  "keywords": [
+    "angular",
+    "arabic words",
+    "arabic number converter"
+  ],
   "dependencies": {
     "@angular/animations": "^16.1.0",
     "@angular/common": "^16.1.0",
